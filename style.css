@@ -51,8 +51,30 @@ body {
 }
 
 .isi .head-file .head-title {
-    /* flex: 1 1 auto; */
     flex: 1 1 auto;
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    /* box-sizing: border-box; */
+    /* padding: 0px; */
+    margin: 0px;
+}
+
+.head-title .bungkus-ht {
+    width: 100%;
+    height: 40px;
+}
+
+.head-title h1 {
+    width: 120px;
+    height: 40px;
+    /* text-align: center; */
+    line-height: 40px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px;
 }
 
 .isi .head-file .control-box {
