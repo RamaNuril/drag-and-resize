@@ -36,12 +36,13 @@ body {
 }
 
 
-.isi header {
+.isi .head-file {
     /* background-color: darkgray; */
     background-color: salmon;
     height: 40px;
     width: 100%;
     color: white;
+    position: relative;
     font-family: monospace;
     display: flex;
     justify-content: space-between;
@@ -51,31 +52,39 @@ body {
 }
 
 .isi .head-file .head-title {
+    width: 50%;
     flex: 1 1 150px;
+    /* position: relative; */
+    /* top: 0; */
+    /* left: 0; */
     /* overflow: hidden; */
     /* white-space: nowrap; */
     /* text-overflow: ellipsis; */
     /* box-sizing: border-box; */
-    /* padding: 0px; */
+    /* padding: 20px; */
     /* margin: 0px; */
 }
 
 .head-title h1 {
     /* flex: 0 0 150px; */
-    width: 100%;
+    width: 50%;
     height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
     /* text-align: center; */
     line-height: 40px;
     display: block;
     overflow: hidden;
-    /* white-space: nowrap; */
+    white-space: nowrap;
     text-overflow: ellipsis;
     margin: 0px;
+    padding-left: 20px;
 }
 
 .isi .head-file .control-box {
-    /* flex: 0 0 100px; */
     flex: 0 0 100px;
+    /* width: 20%; */
     height: 70%;
     display: flex;
     justify-content: space-between;

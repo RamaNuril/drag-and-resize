@@ -84,7 +84,7 @@ for (let handler of handlers) {
 				let width = parseFloat(container.style.width.replace('px', ''));
 
 				container.style.left =
-					width > 255
+					width > 270
 						? rect.left - (posX - e.clientX) + 'px'
 						: rect.left;
 				container.style.width = rect.width + (posX - e.clientX) + 'px';
@@ -106,8 +106,8 @@ for (let handler of handlers) {
 				container.style.height =
 					rect.height - (posY - e.clientY) + 'px';
 			}
-			if (rect.width < 250) {
-				container.style.width = '250px';
+			if (rect.width < 270) {
+				container.style.width = '270px';
 				// container.style.left = rect.left + 'px';
 				// let sisi = rect.left;
 				// console.log(sisi);
