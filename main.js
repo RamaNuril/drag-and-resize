@@ -1,6 +1,8 @@
 // Dragable file
 const container = document.querySelector('.container');
 const headFile = document.querySelector('.head-file');
+// test
+// const headh1 = document.querySelector('.head-title h1');
 
 let isResizing = false;
 
@@ -53,6 +55,8 @@ for (let handler of handlers) {
 
 		function mousemove(e) {
 			const rect = container.getBoundingClientRect();
+			// test
+			// const hh1 = headh1.getBoundingClientRect();
 
 			if (currentHandle.classList.contains('nw')) {
 				container.style.width = rect.width + (posX - e.clientX) + 'px';
@@ -86,6 +90,8 @@ for (let handler of handlers) {
 				container.style.width = rect.width + (posX - e.clientX) + 'px';
 			} else if (currentHandle.classList.contains('e')) {
 				container.style.width = rect.width - (posX - e.clientX) + 'px';
+				// test
+				// headh1.style.width = hh1.width - (posX - e.clientX) + 'px';
 			} else if (currentHandle.classList.contains('sw')) {
 				container.style.width = rect.width + (posX - e.clientX) + 'px';
 				container.style.height =

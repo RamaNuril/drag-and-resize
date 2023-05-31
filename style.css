@@ -51,28 +51,24 @@ body {
 }
 
 .isi .head-file .head-title {
-    flex: 1 1 auto;
-    /* white-space: nowrap; */
+    flex: 1 1 150px;
     /* overflow: hidden; */
+    /* white-space: nowrap; */
     /* text-overflow: ellipsis; */
     /* box-sizing: border-box; */
     /* padding: 0px; */
-    margin: 0px;
-}
-
-.head-title .bungkus-ht {
-    width: 100%;
-    height: 40px;
+    /* margin: 0px; */
 }
 
 .head-title h1 {
-    width: 120px;
+    /* flex: 0 0 150px; */
+    width: 100%;
     height: 40px;
     /* text-align: center; */
     line-height: 40px;
     display: block;
-    white-space: nowrap;
     overflow: hidden;
+    /* white-space: nowrap; */
     text-overflow: ellipsis;
     margin: 0px;
 }
