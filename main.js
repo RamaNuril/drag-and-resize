@@ -4,6 +4,15 @@ const headFile = document.querySelector('.head-file');
 // test
 // const headh1 = document.querySelector('.head-title h1');
 
+// ***** tambahan
+const styles = window.getComputedStyle(container);
+var topStyles = parseInt(styles.top);
+var leftStyles = parseInt(styles.left);
+// var topStyles = container.style.top;
+console.log('topStyles = ', topStyles);
+// var leftStyles = container.style.left;
+console.log('leftStyles =', leftStyles);
+
 let isResizing = false;
 
 headFile.addEventListener('mousedown', mousedown);
@@ -24,9 +33,16 @@ function mousedown(e) {
 
 			container.style.left = rect.left - nextX + 'px';
 			container.style.top = rect.top - nextY + 'px';
+			leftStyles = container.style.left;
+			topStyles = container.style.top;
 
 			posX = e.clientX;
+			console.log('posX = ', posX);
+			console.log('leftStyles =', leftStyles);
 			posY = e.clientY;
+			console.log('posY = ', posY);
+			console.log('topStyles = ', topStyles);
+
 		}
 	}
 
@@ -39,6 +55,10 @@ function mousedown(e) {
 // Resizeble File
 const handlers = document.querySelectorAll('.handler');
 let currentHandle;
+
+// *** tambahan
+var widthStyles = parseInt(styles.width);
+var heightStyles = parseInt(styles.height);
 
 for (let handler of handlers) {
 	handler.addEventListener('mousedown', mousedown);
@@ -67,6 +87,10 @@ for (let handler of handlers) {
 				// if (rect.width < 245) {
 				//     mouseup();
 				// }
+				// *tambahan*
+				widthStyles = container.style.width;
+				heightStyles = container.style.height;
+
 			} else if (currentHandle.classList.contains('n')) {
 				container.style.height =
 					rect.height + (posY - e.clientY) + 'px';
@@ -75,11 +99,19 @@ for (let handler of handlers) {
 				let height = parseFloat(container.style.height.replace('px', ''));
 
 				container.style.top = height > 50 ? rect.top - (posY - e.clientY) + 'px' : rect.top;
+				// *tambahan*
+				widthStyles = container.style.width;
+				heightStyles = container.style.height;
+
 			} else if (currentHandle.classList.contains('ne')) {
 				container.style.width = rect.width - (posX - e.clientX) + 'px';
 				container.style.height =
 					rect.height + (posY - e.clientY) + 'px';
 				container.style.top = rect.top - (posY - e.clientY) + 'px';
+				// *tambahan*
+				widthStyles = container.style.width;
+				heightStyles = container.style.height;
+
 			} else if (currentHandle.classList.contains('w')) {
 				let width = parseFloat(container.style.width.replace('px', ''));
 
@@ -88,26 +120,47 @@ for (let handler of handlers) {
 						? rect.left - (posX - e.clientX) + 'px'
 						: rect.left;
 				container.style.width = rect.width + (posX - e.clientX) + 'px';
+				// *tambahan*
+				widthStyles = container.style.width;
+				heightStyles = container.style.height;
+
 			} else if (currentHandle.classList.contains('e')) {
 				container.style.width = rect.width - (posX - e.clientX) + 'px';
 				// test
 				// headh1.style.width = hh1.width - (posX - e.clientX) + 'px';
+				// *tambahan*
+				widthStyles = container.style.width;
+				heightStyles = container.style.height;
+
 			} else if (currentHandle.classList.contains('sw')) {
 				container.style.width = rect.width + (posX - e.clientX) + 'px';
 				container.style.height =
 					rect.height - (posY - e.clientY) + 'px';
 				container.style.left = rect.left - (posX - e.clientX) + 'px';
+				// *tambahan*
+				widthStyles = container.style.width;
+				heightStyles = container.style.height;
+
 			} else if (currentHandle.classList.contains('s')) {
 				if (container.clientHeight < 45 && e.movementY < 0) return;
 				container.style.height =
 					rect.height - (posY - e.clientY) + 'px';
+				// *tambahan*
+				widthStyles = container.style.width;
+				heightStyles = container.style.height;
+
 			} else if (currentHandle.classList.contains('se')) {
 				container.style.width = rect.width - (posX - e.clientX) + 'px';
 				container.style.height =
 					rect.height - (posY - e.clientY) + 'px';
+				// *tambahan*
+				widthStyles = container.style.width;
+				heightStyles = container.style.height;
+
 			}
 			if (rect.width < 270) {
 				container.style.width = '270px';
+				widthStyles = container.style.width;
 				// container.style.left = rect.left + 'px';
 				// let sisi = rect.left;
 				// console.log(sisi);
@@ -139,4 +192,27 @@ tutup.addEventListener('mousedown', tutupFile);
 
 function tutupFile() {
 	container.style.display = 'none';
+}
+
+// Maximize file
+const max = document.querySelector('.maximize');
+max.addEventListener('mousedown', maximizeFile);
+var adaKlik = false;
+
+function maximizeFile() {
+	container.classList.toggle('klik-max');
+	adaKlik = container.classList.contains('klik-max');
+
+	if (adaKlik) {
+		container.style.top = 0 + 'px';
+		container.style.left = 0 + 'px';
+		container.style.width = "100%";
+		container.style.height = "100vh";
+	}
+	else {
+		container.style.top = topStyles;
+		container.style.left = leftStyles;
+		container.style.width = widthStyles;
+		container.style.height = heightStyles;
+	}
 }
