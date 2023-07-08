@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: lightskyblue;
+    overflow: hidden;
 }
 
 .container {
@@ -43,13 +44,14 @@ body {
     background-color: salmon;
     height: 40px;
     width: 100%;
+    flex: 1 0 40px;
     color: white;
     position: relative;
+    /* position: absolute; */
     font-family: monospace;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* flex: 1; */
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .5)
 }
 
@@ -171,6 +173,9 @@ body {
 .isi .isi-file {
     height: 100%;
     width: 100%;
+    flex: 0 10 auto;
+    /* flex: 0 0 auto; */
+    /* position: absolute; */
     /* background-image: url(img/pas\ foto2.jpg); */
     /* background-size: cover; */
     background-color: darkgray;
@@ -178,6 +183,7 @@ body {
 
 .handler {
     background-color: white;
+    /* position: absolute; */
 }
 
 .nw {
@@ -198,6 +204,7 @@ body {
 
 .e {
     cursor: e-resize;
+    /* position: relative; */
 }
 
 .sw {
