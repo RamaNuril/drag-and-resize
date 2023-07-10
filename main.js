@@ -210,9 +210,9 @@ function maximizeFile() {
 		container.style.height = "100vh";
 	}
 	else {
-		container.style.top = topStyles;
-		container.style.left = leftStyles;
-		container.style.width = widthStyles;
-		container.style.height = heightStyles;
+		container.style.top = topStyles + 'px';
+		container.style.left = leftStyles + 'px';
+		container.style.width = widthStyles + 'px';
+		container.style.height = heightStyles + 'px';
 	}
 }
