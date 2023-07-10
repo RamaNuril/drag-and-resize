@@ -5,9 +5,11 @@ const headFile = document.querySelector('.head-file');
 // const headh1 = document.querySelector('.head-title h1');
 
 // ***** tambahan
-const styles = window.getComputedStyle(container);
-var topStyles = parseInt(styles.top);
-var leftStyles = parseInt(styles.left);
+var styles = window.getComputedStyle(container);
+// var topStyles = parseInt(styles.top);
+var topStyles = styles.top;
+// var leftStyles = parseInt(styles.left);
+var leftStyles = styles.left;
 // var topStyles = container.style.top;
 console.log('topStyles = ', topStyles);
 // var leftStyles = container.style.left;
@@ -156,6 +158,8 @@ for (let handler of handlers) {
 				// *tambahan*
 				widthStyles = container.style.width;
 				heightStyles = container.style.height;
+				console.log('width = ', widthStyles);
+				console.log('height = ', heightStyles);
 
 			}
 			if (rect.width < 270) {
@@ -203,16 +207,17 @@ function maximizeFile() {
 	container.classList.toggle('klik-max');
 	adaKlik = container.classList.contains('klik-max');
 
+
 	if (adaKlik) {
 		container.style.top = 0 + 'px';
 		container.style.left = 0 + 'px';
 		container.style.width = "100%";
 		container.style.height = "100vh";
 	}
-	else {
-		container.style.top = topStyles + 'px';
-		container.style.left = leftStyles + 'px';
-		container.style.width = widthStyles + 'px';
-		container.style.height = heightStyles + 'px';
+	else if (!adaKlik) {
+		container.style.top = topStyles;
+		container.style.left = leftStyles;
+		container.style.width = widthStyles;
+		container.style.height = heightStyles;
 	}
 }
