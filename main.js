@@ -59,8 +59,12 @@ const handlers = document.querySelectorAll('.handler');
 let currentHandle;
 
 // *** tambahan
-var widthStyles = parseInt(styles.width);
-var heightStyles = parseInt(styles.height);
+// var widthStyles = parseInt(styles.width);
+var widthStyles = styles.width;
+// var heightStyles = parseInt(styles.height);
+var heightStyles = styles.height;
+console.log('widthStyles = ', widthStyles);
+console.log('heightStyles = ', heightStyles);
 
 for (let handler of handlers) {
 	handler.addEventListener('mousedown', mousedown);
