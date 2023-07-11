@@ -199,7 +199,8 @@ const tutup = document.querySelector('.close');
 tutup.addEventListener('mousedown', tutupFile);
 
 function tutupFile() {
-	container.style.display = 'none';
+	container.classList.toggle('nodisplay');
+	// container.style.display = 'none';
 }
 
 // Maximize file
@@ -224,4 +225,13 @@ function maximizeFile() {
 		container.style.width = widthStyles;
 		container.style.height = heightStyles;
 	}
+}
+
+// membuka suatu folder
+const folder = document.querySelector('.folder-img');
+folder.addEventListener('dblclick', openFile);
+
+function openFile() {
+	container.classList.toggle('nodisplay');
+	// container.style.display = "inline-block";
 }

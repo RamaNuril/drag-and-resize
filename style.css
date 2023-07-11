@@ -3,6 +3,31 @@ body {
     padding: 0;
     background-color: lightskyblue;
     overflow: hidden;
+    font-family: monospace;
+}
+
+h3 {
+    font-size: 10px;
+    text-overflow: ellipsis;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0px;
+}
+
+.folder {
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+    position: relative;
+    top: 7px;
+    left: 5px;
+}
+
+.folder-img {
+    display: block;
+    margin: 2px auto;
+    cursor: pointer;
 }
 
 .container {
@@ -20,7 +45,14 @@ body {
     grid-template-rows: 3px auto 3px;
     box-shadow: 1px 1px 5px black;
     /* transition: 50ms; */
+    /* display: none; */
 }
+
+.nodisplay {
+    display: none;
+}
+
+
 
 .isi {
     display: flex;
