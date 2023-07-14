@@ -199,7 +199,7 @@ const tutup = document.querySelector('.close');
 tutup.addEventListener('mousedown', tutupFile);
 
 function tutupFile() {
-	container.classList.toggle('nodisplay');
+	container.classList.add('nodisplay');
 	// container.style.display = 'none';
 }
 
@@ -230,8 +230,22 @@ function maximizeFile() {
 // membuka suatu folder
 const folder = document.querySelector('.folder-img');
 folder.addEventListener('dblclick', openFile);
+var terbuka = false;
 
 function openFile() {
-	container.classList.toggle('nodisplay');
+	container.classList.remove('nodisplay');
+	container.style.zIndex = '10';
+	terbuka = true;
+	if (terbuka) {
+		// alert('buka');
+		let elementKedip = document.querySelector('.isi .head-file');
+		let bgcasal = elementKedip.style.backgroundColor;
+		folder.addEventListener('mousedown', function () {
+			elementKedip.style.backgroundColor = "white";
+		});
+		folder.addEventListener('mouseup', function () {
+			elementKedip.style.backgroundColor = bgcasal;
+		});
+	}
 	// container.style.display = "inline-block";
 }
