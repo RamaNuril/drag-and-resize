@@ -6,7 +6,7 @@ body {
     font-family: monospace;
 }
 
-h3 {
+h3.nama-folder {
     font-size: 10px;
     text-overflow: ellipsis;
     text-align: center;
@@ -26,9 +26,10 @@ h3 {
 
 .folder-img {
     display: block;
-    margin: 2px auto;
     cursor: pointer;
+    margin: 0 auto;
 }
+
 
 .container {
     position: absolute;
@@ -205,13 +206,26 @@ h3 {
 .isi .isi-file {
     height: 100%;
     width: 100%;
-    flex: 0 10 auto;
+    /* padding: 10px; */
+    /* flex: 0 10 auto; */
     /* flex: 0 0 auto; */
     /* position: absolute; */
-    /* background-image: url(img/pas\ foto2.jpg); */
+    /* background-image: url(img/PasFoto_Rama.jpg); */
     /* background-size: cover; */
     background-color: darkgray;
+    display: flex;
+    box-sizing: border-box;
 }
+
+.isi-folder {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    /* display: flex;
+    flex-direction: row; */
+}
+
+
 
 .handler {
     background-color: white;
