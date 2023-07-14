@@ -221,6 +221,8 @@ h3.nama-folder {
     background-color: darkgray;
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
     box-sizing: border-box;
 }
 
