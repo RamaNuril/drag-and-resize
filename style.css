@@ -6,6 +6,12 @@ body {
     font-family: monospace;
 }
 
+a,
+a:active {
+    text-decoration: none;
+    color: black;
+}
+
 h3.nama-folder {
     font-size: 10px;
     text-overflow: ellipsis;
@@ -205,7 +211,7 @@ h3.nama-folder {
 
 .isi .isi-file {
     height: 100%;
-    width: 100%;
+    width: auto;
     /* padding: 10px; */
     /* flex: 0 10 auto; */
     /* flex: 0 0 auto; */
@@ -214,6 +220,7 @@ h3.nama-folder {
     /* background-size: cover; */
     background-color: darkgray;
     display: flex;
+    flex-wrap: wrap;
     box-sizing: border-box;
 }
 
