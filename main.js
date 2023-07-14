@@ -166,9 +166,15 @@ for (let handler of handlers) {
 				console.log('height = ', heightStyles);
 
 			}
-			if (rect.width < 270) {
-				container.style.width = '270px';
-				widthStyles = container.style.width;
+			if (rect.width < 270 || rect.height < 200) {
+				if (rect.width < 270) {
+					container.style.width = '270px';
+					widthStyles = container.style.width;
+				}
+				else if (rect.height < 200) {
+					container.style.height = '200px';
+					heightStyles = container.style.height;
+				}
 				// container.style.left = rect.left + 'px';
 				// let sisi = rect.left;
 				// console.log(sisi);
