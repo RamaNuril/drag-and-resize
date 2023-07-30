@@ -55,11 +55,14 @@ h3.nama-folder {
     /* display: none; */
 }
 
+.dua {
+    left: 50%;
+    top: 25%;
+}
+
 .nodisplay {
     display: none;
 }
-
-
 
 .isi {
     display: flex;
