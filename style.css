@@ -229,6 +229,18 @@ h3.nama-folder {
     box-sizing: border-box;
 }
 
+.isi-file.pF {
+    background-image: url(img/PasFoto_Rama.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.isi-file.exF {
+    background-image: url(img/dark-honeycomb.png);
+    background-position: center;
+    background-size: cover;
+}
+
 .isi-folder {
     width: 40px;
     height: 40px;

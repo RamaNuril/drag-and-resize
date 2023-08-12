@@ -6,13 +6,9 @@ const headFile = document.querySelector('.head-file');
 
 // ***** tambahan
 var styles = window.getComputedStyle(container);
-// var topStyles = parseInt(styles.top);
 var topStyles = styles.top;
-// var leftStyles = parseInt(styles.left);
 var leftStyles = styles.left;
-// var topStyles = container.style.top;
 console.log('topStyles = ', topStyles);
-// var leftStyles = container.style.left;
 console.log('leftStyles =', leftStyles);
 
 function checkClass(class1, class2) {
