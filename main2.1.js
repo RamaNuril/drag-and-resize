@@ -320,6 +320,7 @@ const folder = document.querySelectorAll('.folder-img');
 var terbuka = false;
 
 for (let i = 0; i < folder.length; i++) {
+	// folder[i].addEventListener('dblclick', openFile);
 	folder[i].addEventListener('click', openFile);
 
 
