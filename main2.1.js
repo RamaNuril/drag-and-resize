@@ -321,6 +321,7 @@ var terbuka = false;
 
 for (let i = 0; i < folder.length; i++) {
 	// folder[i].addEventListener('dblclick', openFile);
+	// mencoba pake klik
 	folder[i].addEventListener('click', openFile);
 
 
