@@ -1,6 +1,51 @@
 // Dragable file
 const containerAll = document.querySelectorAll('.container');
 const headFileAll = document.querySelectorAll('.head-file');
+const controlBox = document.querySelectorAll('.control-box');
+const box = document.querySelectorAll('.box');
+
+var mobile;
+
+// for mobile
+if (window.innerWidth <= 768) {
+
+	box.forEach(function (cbox) {
+		console.log('ini parent box = ', cbox.parentElement);
+		if (cbox.parentElement.classList.contains('cvF')) {
+			cbox.parentElement.remove();
+		}
+		else if (!cbox.classList.contains('close')) {
+			console.log('ini class', cbox);
+			cbox.style.opacity = '0';
+		}
+	});
+
+
+	// menghilangkan control-Box
+	// controlBox.forEach(function (cBox) {
+	// 	if (cBox.classList.contains('cvF')) {
+	// 		cBox.remove();
+	// 	}
+	// 	else {
+	// 		console.log('ini cbox = ', cBox.childNodes);
+	// 		for (let i = 0; i < cBox.childNodes.length; i++) {
+	// 			console.log('ini cN = ', cBox.childNodes[i].childNodes.className);
+	// 		}
+	// 	}
+	// })
+
+	// membuat display menjadi maximize
+	containerAll.forEach(function (c) {
+		if (c.classList.contains('cv-img')) {
+			c.classList.remove('nodisplay');
+			c.style.top = 0 + 'px';
+			c.style.left = 0 + 'px';
+			c.style.width = "100%";
+			c.style.height = "100vh";
+		}
+	});
+	mobile = true;
+};
 
 var styles;
 var topStyles;
@@ -16,6 +61,7 @@ function checkArray(Array1, Array2) {
 	return false;
 }
 
+// untuk mencari nilai array
 function findArrayValue(Array1, Array2) {
 	const emptyVarr = Array1.filter(value => Array2.includes(value));
 	return emptyVarr;
@@ -345,6 +391,17 @@ for (let i = 0; i < folder.length; i++) {
 		}
 
 		if (containerAll[i].classList.contains(classTerpilih)) {
+
+			// for mobile
+			if (mobile) {
+
+				containerAll[i].classList.remove('nodisplay');
+				containerAll[i].style.top = 0 + 'px';
+				containerAll[i].style.left = 0 + 'px';
+				containerAll[i].style.width = "100%";
+				containerAll[i].style.height = "100vh";
+			}
+
 			containerAll[i].classList.remove('nodisplay');
 			containerAll[i].style.zIndex = '10';
 			terbuka = true;
@@ -460,16 +517,5 @@ window.addEventListener('mousedown', function (e) {
 			containerAll[i].style.zIndex -= zMin.toString();
 		}
 	}
-
-	// if (adaCon.classList.contains('container')) {
-	// 	adaCon.style.zIndex = (parseInt(adaCon.style.zIndex) + zNambah).toString();
-	// }
-	// else if (adaCon.parentElement.classList.contains('container')) {
-	// 	adaCon.parentElement.style.zIndex = (parseInt(adaCon.parentElement.style.zIndex) + zNambah).toString();
-	// }
-	// else if (adaCon.parentElement.parentElement.classList.contains('container')) {
-	// 	adaCon.parentElement.parentElement.style.zIndex = (parseInt(adaCon.parentElement.parentElement.style.zIndex) + zNambah).toString();
-	// }
-
 
 });
