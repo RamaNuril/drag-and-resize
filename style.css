@@ -391,7 +391,7 @@ h3.nama-folder {
         /* width: 100%; */
         width: auto;
         padding: 10px;
-        overflow: hidden;
+        overflow: auto;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(8, 1fr);
