@@ -10,29 +10,20 @@ var mobile;
 if (window.innerWidth <= 768) {
 
 	box.forEach(function (cbox) {
-		console.log('ini parent box = ', cbox.parentElement);
+		// console.log('ini parent box = ', cbox.parentElement);
 		if (cbox.parentElement.classList.contains('cvF')) {
 			cbox.parentElement.remove();
 		}
 		else if (!cbox.classList.contains('close')) {
-			console.log('ini class', cbox);
-			cbox.style.opacity = '0';
+			// console.log('ini class', cbox);
+			// cbox.style.opacity = '0';
+			// cbox.style.zIndex = '-10';
+			// cbox.remove();
+			cbox.style.opacity = 0;
+			cbox.style.pointerEvents = "none";
 		}
 	});
 
-
-	// menghilangkan control-Box
-	// controlBox.forEach(function (cBox) {
-	// 	if (cBox.classList.contains('cvF')) {
-	// 		cBox.remove();
-	// 	}
-	// 	else {
-	// 		console.log('ini cbox = ', cBox.childNodes);
-	// 		for (let i = 0; i < cBox.childNodes.length; i++) {
-	// 			console.log('ini cN = ', cBox.childNodes[i].childNodes.className);
-	// 		}
-	// 	}
-	// })
 
 	// membuat display menjadi maximize
 	containerAll.forEach(function (c) {
@@ -68,12 +59,13 @@ function findArrayValue(Array1, Array2) {
 }
 
 for (let i = 0; i < containerAll.length; i++) {
-	console.log("container = ", containerAll[i]);
+	// console.log("container = ", containerAll[i]);
 	styles = window.getComputedStyle(containerAll[i]);
 	topStyles = styles.top;
 	leftStyles = styles.left;
-	console.log('topStyles = ', topStyles);
-	console.log('leftStyles =', leftStyles);
+	// console.log('topStyles = ', topStyles);
+	// console.log('leftStyles =', leftStyles);
+
 	// const container = document.querySelector('.container');
 	// const headFile = document.querySelector('.head-file');
 	// ***** tambahan
@@ -89,20 +81,20 @@ for (let i = 0; i < containerAll.length; i++) {
 	// });
 
 	for (let i = 0; i < headFileAll.length; i++) {
-		console.log('ini', i);
+		// console.log('ini', i);
 	};
 
 	// test
 	const hand = containerAll[i].querySelectorAll('.handler');
 	for (let i = 0; i < hand.length; i++) {
-		console.log('ini hand!!! ', hand);
+		// console.log('ini hand!!! ', hand);
 	}
 
 	for (let i = 0; i < headFileAll.length; i++) {
 		headFileAll[i].addEventListener('mousedown', mousedown);
 
 		function mousedown(eDDrag) {
-			console.log("ini ddrag = ", eDDrag.target.parentElement);
+			// console.log("ini ddrag = ", eDDrag.target.parentElement);
 			window.addEventListener('mousemove', mousemove);
 			window.addEventListener('mouseup', mouseup);
 
@@ -122,11 +114,11 @@ for (let i = 0; i < containerAll.length; i++) {
 					topStyles = containerAll[i].style.top;
 
 					posX = eMDrag.clientX;
-					console.log('posX = ', posX);
-					console.log('leftStyles =', leftStyles);
+					// console.log('posX = ', posX);
+					// console.log('leftStyles =', leftStyles);
 					posY = eMDrag.clientY;
-					console.log('posY = ', posY);
-					console.log('topStyles = ', topStyles);
+					// console.log('posY = ', posY);
+					// console.log('topStyles = ', topStyles);
 
 				}
 			}
@@ -148,8 +140,8 @@ for (let i = 0; i < containerAll.length; i++) {
 	var widthStyles = styles.width;
 	// var heightStyles = parseInt(styles.height);
 	var heightStyles = styles.height;
-	console.log('widthStyles = ', widthStyles);
-	console.log('heightStyles = ', heightStyles);
+	// console.log('widthStyles = ', widthStyles);
+	// console.log('heightStyles = ', heightStyles);
 
 	// for (let i = 0; i < handlers.length; i++) {
 
@@ -173,102 +165,119 @@ for (let i = 0; i < containerAll.length; i++) {
 				// test
 				// const hh1 = headh1.getBoundingClientRect();
 
-				if (currentHandle.classList.contains('nw')) {
-					containerAll[i].style.width = rect.width + (posX - e.clientX) + 'px';
-					containerAll[i].style.height =
-						rect.height + (posY - e.clientY) + 'px';
-					containerAll[i].style.left = rect.left - (posX - e.clientX) + 'px';
-					containerAll[i].style.top = rect.top - (posY - e.clientY) + 'px';
-					// if (rect.width < 245) {
-					//     mouseup();
-					// }
-					// *tambahan*
-					widthStyles = containerAll[i].style.width;
-					heightStyles = containerAll[i].style.height;
-
-				} else if (currentHandle.classList.contains('n')) {
-					containerAll[i].style.height =
-						rect.height + (posY - e.clientY) + 'px';
-
-					//tambahan
-					let height = parseFloat(containerAll[i].style.height.replace('px', ''));
-
-					containerAll[i].style.top = height > 200 ? rect.top - (posY - e.clientY) + 'px' : rect.top;
-					// *tambahan*
-					widthStyles = containerAll[i].style.width;
-					heightStyles = containerAll[i].style.height;
-
-				} else if (currentHandle.classList.contains('ne')) {
-					containerAll[i].style.width = rect.width - (posX - e.clientX) + 'px';
-					containerAll[i].style.height =
-						rect.height + (posY - e.clientY) + 'px';
-					containerAll[i].style.top = rect.top - (posY - e.clientY) + 'px';
-					// *tambahan*
-					widthStyles = containerAll[i].style.width;
-					heightStyles = containerAll[i].style.height;
-
-				} else if (currentHandle.classList.contains('w')) {
-					let width = parseFloat(containerAll[i].style.width.replace('px', ''));
-
-					containerAll[i].style.left =
-						width > 270
-							? rect.left - (posX - e.clientX) + 'px'
-							: rect.left;
-					containerAll[i].style.width = rect.width + (posX - e.clientX) + 'px';
-					// *tambahan*
-					widthStyles = containerAll[i].style.width;
-					heightStyles = containerAll[i].style.height;
-
-				} else if (currentHandle.classList.contains('e')) {
-					containerAll[i].style.width = rect.width - (posX - e.clientX) + 'px';
-					// test
-					// headh1.style.width = hh1.width - (posX - e.clientX) + 'px';
-					// *tambahan*
-					widthStyles = containerAll[i].style.width;
-					heightStyles = containerAll[i].style.height;
-
-				} else if (currentHandle.classList.contains('sw')) {
-					containerAll[i].style.width = rect.width + (posX - e.clientX) + 'px';
-					containerAll[i].style.height =
-						rect.height - (posY - e.clientY) + 'px';
-					containerAll[i].style.left = rect.left - (posX - e.clientX) + 'px';
-					// *tambahan*
-					widthStyles = containerAll[i].style.width;
-					heightStyles = containerAll[i].style.height;
-
-				} else if (currentHandle.classList.contains('s')) {
-					if (containerAll[i].clientHeight < 45 && e.movementY < 0) return;
-					containerAll[i].style.height =
-						rect.height - (posY - e.clientY) + 'px';
-					// *tambahan*
-					widthStyles = containerAll[i].style.width;
-					heightStyles = containerAll[i].style.height;
-
-				} else if (currentHandle.classList.contains('se')) {
-					containerAll[i].style.width = rect.width - (posX - e.clientX) + 'px';
-					containerAll[i].style.height =
-						rect.height - (posY - e.clientY) + 'px';
-					// *tambahan*
-					widthStyles = containerAll[i].style.width;
-					heightStyles = containerAll[i].style.height;
-					console.log('width = ', widthStyles);
-					console.log('height = ', heightStyles);
-
-				}
-				if (rect.width < 270 || rect.height < 200) {
-					if (rect.width < 270) {
-						containerAll[i].style.width = '270px';
+				// fungsi untuk menentukan batas ukuran dari folder
+				function batasWH(lebar, tinggi) {
+					if (currentHandle.classList.contains('nw')) {
+						containerAll[i].style.width = rect.width + (posX - e.clientX) + 'px';
+						containerAll[i].style.height =
+							rect.height + (posY - e.clientY) + 'px';
+						containerAll[i].style.left = rect.left - (posX - e.clientX) + 'px';
+						containerAll[i].style.top = rect.top - (posY - e.clientY) + 'px';
+						// if (rect.width < 245) {
+						//     mouseup();
+						// }
+						// *tambahan*
 						widthStyles = containerAll[i].style.width;
-					}
-					else if (rect.height < 200) {
-						containerAll[i].style.height = '200px';
 						heightStyles = containerAll[i].style.height;
+
+					} else if (currentHandle.classList.contains('n')) {
+						containerAll[i].style.height =
+							rect.height + (posY - e.clientY) + 'px';
+
+						//tambahan
+						let height = parseFloat(containerAll[i].style.height.replace('px', ''));
+
+						containerAll[i].style.top = height > tinggi ? rect.top - (posY - e.clientY) + 'px' : rect.top;
+						// *tambahan*
+						widthStyles = containerAll[i].style.width;
+						heightStyles = containerAll[i].style.height;
+
+					} else if (currentHandle.classList.contains('ne')) {
+						containerAll[i].style.width = rect.width - (posX - e.clientX) + 'px';
+						containerAll[i].style.height =
+							rect.height + (posY - e.clientY) + 'px';
+						containerAll[i].style.top = rect.top - (posY - e.clientY) + 'px';
+						// *tambahan*
+						widthStyles = containerAll[i].style.width;
+						heightStyles = containerAll[i].style.height;
+
+					} else if (currentHandle.classList.contains('w')) {
+						let width = parseFloat(containerAll[i].style.width.replace('px', ''));
+
+						containerAll[i].style.left =
+							width > lebar
+								? rect.left - (posX - e.clientX) + 'px'
+								: rect.left;
+						containerAll[i].style.width = rect.width + (posX - e.clientX) + 'px';
+						// *tambahan*
+						widthStyles = containerAll[i].style.width;
+						heightStyles = containerAll[i].style.height;
+
+					} else if (currentHandle.classList.contains('e')) {
+						containerAll[i].style.width = rect.width - (posX - e.clientX) + 'px';
+						// test
+						// headh1.style.width = hh1.width - (posX - e.clientX) + 'px';
+						// *tambahan*
+						widthStyles = containerAll[i].style.width;
+						heightStyles = containerAll[i].style.height;
+
+					} else if (currentHandle.classList.contains('sw')) {
+						containerAll[i].style.width = rect.width + (posX - e.clientX) + 'px';
+						containerAll[i].style.height =
+							rect.height - (posY - e.clientY) + 'px';
+						containerAll[i].style.left = rect.left - (posX - e.clientX) + 'px';
+						// *tambahan*
+						widthStyles = containerAll[i].style.width;
+						heightStyles = containerAll[i].style.height;
+
+					} else if (currentHandle.classList.contains('s')) {
+						if (containerAll[i].clientHeight < 45 && e.movementY < 0) return;
+						containerAll[i].style.height =
+							rect.height - (posY - e.clientY) + 'px';
+						// *tambahan*
+						widthStyles = containerAll[i].style.width;
+						heightStyles = containerAll[i].style.height;
+
+					} else if (currentHandle.classList.contains('se')) {
+						containerAll[i].style.width = rect.width - (posX - e.clientX) + 'px';
+						containerAll[i].style.height =
+							rect.height - (posY - e.clientY) + 'px';
+						// *tambahan*
+						widthStyles = containerAll[i].style.width;
+						heightStyles = containerAll[i].style.height;
+						// console.log('width = ', widthStyles);
+						// console.log('height = ', heightStyles);
+
 					}
-					// container.style.left = rect.left + 'px';
-					// let sisi = rect.left;
-					// console.log(sisi);
-					return;
+					if (rect.width < lebar || rect.height < tinggi) {
+						if (rect.width < lebar) {
+							containerAll[i].style.width = `${lebar}px`;
+							widthStyles = containerAll[i].style.width;
+						}
+						else if (rect.height < tinggi) {
+							containerAll[i].style.height = `${tinggi}px`;
+							heightStyles = containerAll[i].style.height;
+						}
+						return;
+					}
 				}
+
+				//move folder cv
+				if (containerAll[i].classList.contains('cv-img')) {
+					console.log("yas ada cv-img");
+					batasWH(270, 200);
+				}
+				//move folder profile
+				else if (containerAll[i].classList.contains('profile-img')) {
+					console.log('yes ada profile-img')
+					batasWH(650, 500);
+				}
+				//move folder experiences
+				else if (containerAll[i].classList.contains('ex-img')) {
+					console.log('yes ada ex-img')
+					batasWH(500, 700);
+				}
+
 
 				posX = e.clientX;
 				posY = e.clientY;
@@ -283,10 +292,10 @@ for (let i = 0; i < containerAll.length; i++) {
 	}
 
 	const ketkon = containerAll[i].getBoundingClientRect();
-	console.log(ketkon.width);
+	// console.log(ketkon.width);
 
 	if (ketkon.width > 200) {
-		console.log('coki Login!');
+		// console.log('coki Login!');
 	}
 
 	// Menutup file
@@ -362,6 +371,7 @@ for (let i = 0; i < containerAll.length; i++) {
 };
 
 
+// membuka file
 const folder = document.querySelectorAll('.folder-img');
 var terbuka = false;
 
@@ -372,21 +382,21 @@ for (let i = 0; i < folder.length; i++) {
 
 
 	function openFile(eOP) {
-		console.log('ini eOP', eOP.target.classList);
+		// console.log('ini eOP', eOP.target.classList);
 
 		//*
 		let eopArr = Array.from(eOP.target.classList);
-		console.log('ini eopArr = ', eopArr);
+		// console.log('ini eopArr = ', eopArr);
 
 		let classTerpilih;
 
 		for (let i = 0; i < containerAll.length; i++) {
 			let conArr = Array.from(containerAll[i].classList);
-			console.log('ini conArr', conArr);
+			// console.log('ini conArr', conArr);
 			if (checkArray(eopArr, conArr)) {
-				console.log('AKU HIDUP!!!', findArrayValue(eopArr, conArr));
+				// console.log('AKU HIDUP!!!', findArrayValue(eopArr, conArr));
 				classTerpilih = findArrayValue(eopArr, conArr)[0];
-				console.log('ini yg terpilih = ', classTerpilih);
+				// console.log('ini yg terpilih = ', classTerpilih);
 			}
 		}
 
@@ -410,7 +420,7 @@ for (let i = 0; i < folder.length; i++) {
 				// alert('buka');
 				// *manipulasi elementKedip!!! (PR)
 				let elementKedip = document.querySelectorAll('.head-file');
-				console.log('ini elementKedip = ', elementKedip.classList);
+				// console.log('ini elementKedip = ', elementKedip.classList);
 				for (let i = 0; i < elementKedip.length; i++) {
 					if (elementKedip[i].classList.contains(classTerpilih)) {
 						let bgcAsal = elementKedip[i].style.backgroundColor;
@@ -423,7 +433,7 @@ for (let i = 0; i < folder.length; i++) {
 
 					}
 					let anakHFile = Array.from(elementKedip[i].classList);
-					console.log('ini anakHFile = ', anakHFile);
+					// console.log('ini anakHFile = ', anakHFile);
 				}
 				// let bgcasal = elementKedip.style.backgroundColor;
 				// folder[i].addEventListener('mousedown', function () {
@@ -440,7 +450,13 @@ for (let i = 0; i < folder.length; i++) {
 	};
 };
 
+// maximize file
 const max = document.querySelectorAll('.maximize');
+
+// membuat ikut font membesar pada beberapa folder
+const fontGede = document.querySelector(".isi-file.pF");
+const fontAwal = window.getComputedStyle(fontGede).fontSize;
+console.log("ini font awal =", fontAwal);
 
 max.forEach(function (eMax) {
 
@@ -449,7 +465,6 @@ max.forEach(function (eMax) {
 
 	function maximizeFile(eM) {
 		let conEM = eM.target.parentElement.parentElement.parentElement.parentElement;
-
 
 		conEM.classList.toggle('klik-max');
 		adaKlik = conEM.classList.contains('klik-max');
@@ -460,12 +475,14 @@ max.forEach(function (eMax) {
 			conEM.style.left = 0 + 'px';
 			conEM.style.width = "100%";
 			conEM.style.height = "100vh";
+			fontGede.style.fontSize = "20px";
 		}
 		else if (!adaKlik) {
 			conEM.style.top = topStyles;
 			conEM.style.left = leftStyles;
 			conEM.style.width = widthStyles;
 			conEM.style.height = heightStyles;
+			fontGede.style.fontSize = fontAwal;
 		}
 	}
 });
@@ -490,7 +507,7 @@ tutup.forEach(function (eTutup) {
 // mengubah zIndex container file yang diklik
 // agar tampilan ada paling depan.
 window.addEventListener('mousedown', function (e) {
-	console.log('INI ADALAH E = ', e.target, " Ini Container[0]", containerAll[0]);
+	// console.log('INI ADALAH E = ', e.target, " Ini Container[0]", containerAll[0]);
 	var zNambah = 10;
 	let adaCon = e.target.parentElement;
 	for (let i = 0; i < containerAll.length; i++) {
