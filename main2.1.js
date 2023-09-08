@@ -270,12 +270,12 @@ for (let i = 0; i < containerAll.length; i++) {
 				//move folder profile
 				else if (containerAll[i].classList.contains('profile-img')) {
 					console.log('yes ada profile-img')
-					batasWH(650, 500);
+					batasWH(600, 450);
 				}
 				//move folder experiences
 				else if (containerAll[i].classList.contains('ex-img')) {
 					console.log('yes ada ex-img')
-					batasWH(500, 700);
+					batasWH(500, 500);
 				}
 
 

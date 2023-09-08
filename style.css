@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: lightskyblue;
-    overflow: auto;
+    overflow: hidden;
     font-family: monospace;
 }
 
@@ -55,10 +55,19 @@ h3.nama-folder {
     /* display: none; */
 }
 
-.dua {
+/* container Profile */
+.dua-pF {
     left: 30%;
     top: 25%;
-    width: 650px;
+    width: 600px;
+    height: 450px;
+}
+
+/* .container Experiences */
+.tiga-exF {
+    left: 20%;
+    top: 30%;
+    width: 600px;
     height: 500px;
 }
 
@@ -69,6 +78,8 @@ h3.nama-folder {
 .isi {
     display: flex;
     flex-direction: column;
+    position: relative;
+    /* position: absolute; */
 }
 
 .noselect {
@@ -85,10 +96,11 @@ h3.nama-folder {
 
 .isi .head-file {
     /* background-color: darkgray; */
+    z-index: 1;
     background-color: salmon;
     height: 40px;
     width: 100%;
-    flex: 1 0 40px;
+    /* flex: 1 0 40px; */
     color: white;
     position: relative;
     /* position: absolute; */
@@ -98,6 +110,12 @@ h3.nama-folder {
     align-items: center;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .5)
 }
+
+/* .wrap-scroll {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+} */
 
 .isi .head-file .head-title {
     width: 70%;
@@ -117,7 +135,7 @@ h3.nama-folder {
     /* flex: 0 0 150px; */
     width: 58%;
     height: 40px;
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     top: 0;
     /* text-align: center; */
@@ -143,13 +161,6 @@ h3.nama-folder {
     /* box-sizing: border-box; */
 }
 
-/* contoh */
-/* .isi header p {
-    border: 5px solid black;
-    margin: 5px;
-    font-size: 20px;
-    cursor: pointer;
-} */
 .box {
     background-color: darkgray;
     margin: 0px 3px;
@@ -157,6 +168,7 @@ h3.nama-folder {
     height: 100%; */
     border: 1px solid white;
     box-sizing: border-box;
+    /* position: absolute; */
 }
 
 .close {
@@ -229,6 +241,7 @@ h3.nama-folder {
     justify-content: flex-start;
     align-content: flex-start;
     box-sizing: border-box;
+    /* position: absolute; */
 }
 
 
@@ -244,25 +257,23 @@ h3.nama-folder {
     gap: 10px;
 }
 
-.abdul {
-    /* margin-top: 25px; */
+/* bagian nama-pF */
+.nama-pF {
     grid-column: 1 / 5;
     grid-row: 1 / 4;
-    /* border: 10px solid gray; */
-    /* padding-left: 20px; */
-    /* font-size: 20px; */
+    padding: 10px;
     text-align: center;
 }
 
-.abdul h3 {
+.nama-pF h3 {
     margin-top: 40px;
 }
 
-.somad {
+/* bagian pasFoto-pF */
+.pasFoto-pF {
     grid-column: 5 / 7;
     grid-row: 1 / 4;
-    /* border: 5px solid white; */
-    /* border-radius: 30%; */
+    margin: 10px;
     background-image: url(img/PasFoto_Rama.jpg);
     background-size: contain;
     background-position: center;
@@ -270,14 +281,14 @@ h3.nama-folder {
 }
 
 /* bagian Ujang */
-.ujang {
+.kontak-pF {
     grid-column: 1 / 4;
     grid-row: 4 / 7;
     /* border: 10px solid gray; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    list-style: none;
+    padding: 10px;
 }
 
 .isi-kontak {
@@ -291,26 +302,20 @@ h3.nama-folder {
     padding-left: 5px;
 }
 
-.iun {
+.personality-pF {
     grid-column: 4 / 7;
     grid-row: 4 / 7;
-    /* border: 10px solid gray; */
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
     box-sizing: border-box;
 }
 
 .INTJ-char {
     text-align: center;
-    /* margin: 5px auto; */
     flex: 1;
-    /* height: 150px;
-    width: 250px; */
     background-image: url(img/INTJ_char.png);
     background-size: contain;
     background-position: center;
-    /* background-position: 30px; */
     background-repeat: no-repeat;
 }
 
@@ -321,22 +326,113 @@ h3.nama-folder {
 
 .INTJ-bar {
     flex: 1;
-    /* width: 100%;
-    height: 100%; */
     background-image: url(img/INTJ_bar.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.INTJ-bar a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    opacity: 0;
+}
+
+.INTJ-bar a:hover {
+    opacity: 0.3;
+}
 
 /* isi Experiences */
-.isi-file.exF {
-    background-image: url(img/dark-honeycomb.png);
-    background-position: center;
+.isi .isi-file.exF {
+    padding-top: 40px;
+    position: absolute;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.ex-isi {
+    width: 640px;
+    height: 200px;
+    padding: 10px;
+}
+
+.ex-isi h2,
+.ex-isi h3,
+.ex-isi ul {
+    margin: 0;
+}
+
+.ex-isi ul {
+    font-size: 15px;
+}
+
+.satu-exF img {
+    width: 130px;
+    height: 120px;
+    float: right;
+    border: 5px solid white;
+    border-radius: 50%;
+    background-image: url(img/carefast.jpg);
     background-size: cover;
 }
 
+.dua-exF img {
+    width: 130px;
+    height: 120px;
+    float: right;
+    border: 5px solid white;
+    border-radius: 50%;
+    background-image: url(img/agp.jpg);
+    background-size: cover;
+}
+
+.tilu-exF img {
+    width: 130px;
+    height: 120px;
+    float: right;
+    border: 5px solid white;
+    border-radius: 50%;
+    background-image: url(img/PT.Ceres.jpg);
+    background-size: cover;
+}
+
+.empat-exF img {
+    width: 130px;
+    height: 120px;
+    float: right;
+    border: 5px solid white;
+    border-radius: 50%;
+    background-image: url(img/chikuro.jpg);
+    background-size: cover;
+}
+
+.lima-exF img {
+    width: 130px;
+    height: 120px;
+    float: right;
+    border: 5px solid white;
+    border-radius: 50%;
+    background-image: url(img/Ublag.jpg);
+    background-size: cover;
+}
+
+
+
+
+
+
+/* bagian 1 cv-img dont disturb! */
 .isi-folder {
     width: 40px;
     height: 40px;
@@ -349,6 +445,7 @@ h3.nama-folder {
 
 .handler {
     background-color: white;
+    z-index: 2;
     /* position: absolute; */
 }
 
@@ -386,7 +483,8 @@ h3.nama-folder {
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+    height: 10px;
+    width: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -396,16 +494,19 @@ h3.nama-folder {
 
 ::-webkit-scrollbar-track {
     background-color: gray;
-    /* display: none; */
+    opacity: 0;
 }
 
 ::-webkit-scrollbar-track-piece {
-    /* width: 20px; */
     background-color: transparent;
 }
 
 /* For mobile */
 @media (max-width : 768px) {
+    body {
+        overflow: auto;
+    }
+
     .isi-file.pF {
         /* width: 100%; */
         width: auto;
@@ -417,7 +518,7 @@ h3.nama-folder {
         gap: 10px;
     }
 
-    .abdul {
+    .nama-pF {
         grid-column: 1 / 7;
         grid-row: 3 / 5;
         /* border: 10px solid gray; */
@@ -426,7 +527,7 @@ h3.nama-folder {
         text-align: center;
     }
 
-    .somad {
+    .pasFoto-pF {
         grid-column: 1 / 7;
         grid-row: 1 / 3;
         /* border: 5px solid white; */
@@ -438,7 +539,7 @@ h3.nama-folder {
     }
 
     /* bagian Ujang */
-    .ujang {
+    .kontak-pF {
         grid-column: 1 / 7;
         grid-row: 5 / 7;
         /* border: 10px solid gray; */
@@ -459,7 +560,7 @@ h3.nama-folder {
         padding-left: 5px;
     }
 
-    .iun {
+    .personality-pF {
         grid-column: 1 / 7;
         grid-row: 7 / 9;
         /* border: 10px solid gray; */
