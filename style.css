@@ -363,7 +363,7 @@ h3.nama-folder {
 
 .ex-isi {
     width: 640px;
-    height: 200px;
+    height: auto;
     padding: 10px;
 }
 
