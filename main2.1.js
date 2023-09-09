@@ -6,6 +6,7 @@ const box = document.querySelectorAll('.box');
 
 var mobile;
 
+
 // for mobile
 if (window.innerWidth <= 768) {
 
@@ -277,6 +278,12 @@ for (let i = 0; i < containerAll.length; i++) {
 					console.log('yes ada ex-img')
 					batasWH(500, 500);
 				}
+				//move folder education
+				// else if (containerAll[i].classList.contains('ed-img')) {
+				// 	console.log('yes ada ed-img')
+				// 	batasWH(350, 300);
+				// }
+
 
 
 				posX = e.clientX;
