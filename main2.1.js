@@ -278,6 +278,11 @@ for (let i = 0; i < containerAll.length; i++) {
 					console.log('yes ada ex-img')
 					batasWH(500, 500);
 				}
+				// move folder skill
+				else if (containerAll[i].classList.contains('skill-img')) {
+					console.log('yes ada ex-img')
+					batasWH(400, 350);
+				}
 				//move folder education
 				// else if (containerAll[i].classList.contains('ed-img')) {
 				// 	console.log('yes ada ed-img')

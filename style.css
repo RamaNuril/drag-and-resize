@@ -429,6 +429,42 @@ h3.nama-folder {
 }
 
 
+/* Skill */
+.empat-skF {
+    top: 15%;
+    left: 20%;
+    width: 400px;
+    height: 350px;
+}
+
+.isi .isi-file.skF {
+    padding-top: 40px;
+    position: absolute;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+}
+
+.sk-isi {
+    width: 120px;
+    height: 120px;
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sk-isi img {
+    width: 100px;
+    height: 100px;
+}
+
 
 /* Education */
 .lima-edF {
@@ -734,6 +770,11 @@ h3.nama-folder {
         pointer-events: none;
     }
 
+    /* Skill */
+    .isi .isi-file.skF {
+        justify-content: flex-start;
+        flex-direction: column;
+    }
 
 
     /* bagian 1 cv-img dont disturb! */
